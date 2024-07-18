@@ -1,0 +1,26 @@
+@startuml se
+actor User as user
+participant "Search Interface" as searchInterface
+participant "Search Service" as searchService
+database "PolicyQuote Table" as policyQuoteTable
+participant "View/Edit Interface" as viewEditInterface
+participant "View Service" as viewService
+participant "Edit Service" as editService
+
+user -> searchInterface : enter application id
+searchInterface -> searchService : query(criteria)
+searchService -> policyQuoteTable : fetch matching policies
+policyQuoteTable -> searchService : return results
+searchService -> searchInterface : display results
+user -> searchInterface : select policy
+searchInterface -> viewEditInterface : request policy details
+viewEditInterface -> viewService : get details(policyID)
+viewService -> policyQuoteTable : fetch policy details
+policyQuoteTable -> viewService : return details
+viewService -> viewEditInterface : display details
+user -> viewEditInterface : edit policy details
+viewEditInterface -> editService : update policy(details)
+editService -> policyQuoteTable : save updated details
+policyQuoteTable -> editService : confirm save
+editService -> viewEditInterface : display updated details
+@enduml

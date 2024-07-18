@@ -69,29 +69,30 @@ const EditForm = () => {
   
   
     return (
-    <div>
+        <div className="form-container">
         <h2>Edit Application</h2>
         <h3>Update details here</h3>
         <form onSubmit={handleSubmit} autoComplete='off'>
             <input
                 type='text'
                 placeholder='Policy Number'
+                name="policyNumber" // Ensure you have a 'name' attribute for handling changes
                 onChange={handleInputChange}
             />
             <input
                 type='text'
-                placeholder='Plan Type' 
+                placeholder='Plan Type'
+                name="planType" // Ensure you have a 'name' attribute for handling changes
+                onChange={handleInputChange}
             />
             <input
                 type='text'
                 placeholder='Cover Type'
+                name="coverType" // Ensure you have a 'name' attribute for handling changes
+                onChange={handleInputChange}
             />
             <button type='submit'>Update</button>
-
-
-
         </form>
-      
     </div>
   )
 }
