@@ -17,7 +17,7 @@ type SearchResultsProps = {
 
 const SearchResults: React.FC<SearchResultsProps> = ({ results, onViewDetails, onEditDetails }) => {
   const query = useQuery();
-  const searchTerm = query.get('search');
+  const searchTerm = query.get('')
 
   const filteredData = mockData.filter(
     (app) => app.applicationId === searchTerm

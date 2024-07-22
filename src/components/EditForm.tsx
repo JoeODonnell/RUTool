@@ -50,7 +50,12 @@ const EditForm = () => {
 
     function handleSubmit() {
         if (!application.applicationId) {
-            //apiConnector.updateApplication(application).then(() => navigate('/'))
+            // apiConnector.updateApplication(application)
+            // .then(() => navigate('/'))
+            // .catch((error) => console.error(error))
+
+            //console.log("Error updating application: ", error)
+            //})
       
 
 
